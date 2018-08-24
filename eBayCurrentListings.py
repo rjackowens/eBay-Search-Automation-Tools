@@ -1,7 +1,7 @@
 # Currently Listed Items
-import json, requests
+import json, requests, config
+key = config.key
 
-key = "JackOwen-SoldList-PRD-8262b17ed-7c6753a1"
 min_price = input("Enter Minimum Price: ")
 max_price = input("Enter Maximum Price: ")
 search_term = input("Enter Search Term: ")
@@ -23,12 +23,12 @@ url = ("http://svcs.ebay.com/services/search/FindingService/v1\
 &itemFilter(3).value=" + max_price +"&itemFilter(2).paramName=Currency\
 &itemFilter(3).paramValue=USD\
 &keywords=" + search_term)
-apiResult = requests.get(url)
-parseddoc = apiResult.json()
+result = requests.get(url)
+raw = result.json()
 
-print(parseddoc)
+print(raw)
 
-# for item in (parseddoc["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"]):
+# for item in (raw["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"]):
 #     title = item["title"][0]
 #     condition = item['condition'][0]['conditionDisplayName'][0]
 #     price = item['sellingStatus'][0]["convertedCurrentPrice"][0]['__value__']
