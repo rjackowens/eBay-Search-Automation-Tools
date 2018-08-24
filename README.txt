@@ -1,10 +1,13 @@
 eBay Price History Tool:
-This program utilizes the eBay FindingService API operation "findCompletedItems" to query completed eBay listings and calculate
-average sold prices. The program returns the average sold price and allows the user to create an alert to notify of
-items listed within a defined price constraint. In addition, the program allows 
+This tool utilizes the eBay FindingService API operation "findCompletedItems" to query completed eBay listings and calculate
+average sold prices. The program returns aggregate pricing data and allows the user to create a notification of
+items listed within a defined price constraint. 
+
+Upcoming Changes:
+An upcoming version of the program will use regression analysis to analyze historical data to predict future price trends. 
 
 Prerequisites:
-This program requires an installation of Python3.
+This tool requires an installation of Python3.
 
 Getting Started:
 Download all files included within GitHub repository. Edit the config.py file with your eBay developer key. 
