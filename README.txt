@@ -10,8 +10,7 @@ Prerequisites:
 This tool requires an installation of Python3.
 
 Getting Started:
-Download all files included within GitHub repository. Edit the config.py file with your eBay developer key. 
-In the 
+Download all files included within GitHub repository. Edit the config.py file with your eBay developer key.  
 
 Built With:
 eBay FindingService - API framework used
