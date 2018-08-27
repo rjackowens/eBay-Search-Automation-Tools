@@ -1,6 +1,6 @@
 # Jack Owens 8/23/2018 
 # Finds Completed eBay Listings
-import json, requests, config, colorama
+import json, requests, config, colorama, math
 from colorama import init, Fore
 init()
 
@@ -30,7 +30,7 @@ url = ("http://svcs.ebay.com/services/search/FindingService/v1\
 &SECURITY-APPNAME=" + key +"&RESPONSE-DATA-FORMAT=JSON\
 &REST-PAYLOAD\
 &itemFilter(0).name=Condition\
-&itemFilter(0).value=3000\
+&itemFilter(0).value=" + condition + "\
 &itemFilter(1).name=FreeShippingOnly\
 &itemFilter(1).value=true\
 &itemFilter(2).name=SoldItemsOnly\
@@ -55,4 +55,10 @@ for item in (raw["findCompletedItemsResponse"][0]["searchResult"][0]["item"]):
     price = item["sellingStatus"][0]["convertedCurrentPrice"][0]['__value__']
     print (title + " $" + price)
     #sum(float(price))
+   # float(price)
+    #sum(float(price)    
 
+# for item in (raw["findCompletedItemsResponse"][0]["searchResult"][0]["item"]):
+#     price = item["sellingStatus"][0]["convertedCurrentPrice"][0]['__value__']
+#     print sum(list(price)) 
+    # sum(float(price))
