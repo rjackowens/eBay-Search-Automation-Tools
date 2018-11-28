@@ -1,2 +1,2 @@
-# Enter your eBay Developer Key Here
-key = "samplekey"
+key = "XXXXXXXXXXXXX" #Enter your eBay Developer Key Here
+number = "+1XXXXXXXXXX" #Enter your Phone Number Here
