@@ -13,9 +13,11 @@ Getting Started:
 Download all files included within GitHub repository. Edit the config.py file with your eBay developer key.  
 
 Built With:
-eBay FindingService - API framework used
-Requests - Library used to parse HTTP requests
-Colorama - Library used to add color to console text
+eBay FindingService API - Used to gather item data 
+Requests - Used to parse HTTP requests
+Colorama - Used to add color to console text
+boto3 - AWS SDK used for SNS notifications
+matplotlib - Used to plot graphs
 
 Authors:
 Jack Owens - Initial work -
