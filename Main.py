@@ -14,6 +14,7 @@ init()
 searchTerm = input ("\nEnter Search Term: ")
 minPrice = input("Enter Minimum Price: ") # Enter %00 to hard code no min price
 maxPrice = input("Enter Maximum Price: ") # Enter %00 to hard code no max price
+
 print ("\n1 = New \n2 = Used \n3 = For Parts or Not Working")
 
 condition = input("\nSelect Condition: ")
@@ -78,6 +79,7 @@ active_raw = active_results.json()
 # Displays Average Sold Price
 new_list1=[]
 print (Fore.YELLOW + "\nAverage Sold Price: \n" + Fore.GREEN)
+
 for item in (sold_raw["findCompletedItemsResponse"][0]["searchResult"][0]["item"]):
  price = item["sellingStatus"][0]["convertedCurrentPrice"][0]['__value__']
  title = item["title"][0]
@@ -85,12 +87,14 @@ for item in (sold_raw["findCompletedItemsResponse"][0]["searchResult"][0]["item"
  new_list1.append(int_price)
 
 average_sold_price = (sum(new_list1) / float(len(new_list1)))
+
 print (average_sold_price)
 print ("") # New Line
 
 # Displays Average Active Price
 new_list2=[]
 print (Fore.YELLOW + "Average Active Price: \n" + Fore.GREEN)
+
 for item in (active_raw["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"]):
  price = item["sellingStatus"][0]["convertedCurrentPrice"][0]['__value__']
  title = item["title"][0]
@@ -98,10 +102,12 @@ for item in (active_raw["findItemsByKeywordsResponse"][0]["searchResult"][0]["it
  new_list2.append(int_price)
 
 average_active_price = (calculate_average(new_list2))
+
 print (average_active_price)
 
 # Displays Recent Sold Listings
 print (Fore.YELLOW + "\nRecent Sold Listings: \n" + Fore.GREEN)
+
 for item in (sold_raw["findCompletedItemsResponse"][0]["searchResult"][0]["item"]):
  title = item["title"][0]
  url = item["viewItemURL"][0]
@@ -110,6 +116,7 @@ for item in (sold_raw["findCompletedItemsResponse"][0]["searchResult"][0]["item"
 
 # Displays Current Active Listings
 print (Fore.YELLOW + "\nActive Listings: \n" + Fore.GREEN)
+
 for item in (active_raw["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"]):
   price = item["sellingStatus"][0]["convertedCurrentPrice"][0]['__value__']
   title = item["title"][0]
@@ -128,12 +135,14 @@ sns_phone_number = number
 
 # Text Message Alerting + Item Filtering
 print (Fore.YELLOW + "\nListings to Alert: \n" + Fore.GREEN)
+
 for item in (active_raw["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"]):
  item_id = item["itemId"][0]
  price = item["sellingStatus"][0]["convertedCurrentPrice"][0]['__value__']
  title = item["title"][0]
  url = item["viewItemURL"][0]
  int_price = int(float(price))
+ 
  if int_price < average_sold_price and item_id not in itemids: # Removes previously alerted items and items over the average sold price
    print(title + ":" + Fore.YELLOW + " $"  + price + " " + Fore.BLUE + url + Fore.GREEN)   
   
