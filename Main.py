@@ -45,13 +45,11 @@ sold_url = ("http://svcs.ebay.com/services/search/FindingService/v1\
 &keywords=" + search_term)
 
 sold_results = requests.get(sold_url)
-# sold_raw = sold_results.json()
 
 try:
   sold_raw = sold_results.json()
 except ValueError: #json.decoder.JSONDecodeError
   print (Fore.RED + "\nNo Listings Found. JSONDecodeError has Occured." + Fore.RESET)
-  #pass # Throws exception at line 75
 
 # API Request for Active Listings
 active_url = ("http://svcs.ebay.com/services/search/FindingService/v1\
@@ -75,7 +73,6 @@ active_url = ("http://svcs.ebay.com/services/search/FindingService/v1\
 &keywords=" + search_term)
 
 active_results = requests.get(active_url)
-# active_raw = active_results.json()
 
 try:
   active_raw = active_results.json()
@@ -122,8 +119,6 @@ try:
   print (average_active_price)
 except ZeroDivisionError:
   print (Fore.RED + "\nNo Listings Found. ZeroDivisionError Has Occured." + Fore.RESET)
-
-###################################
 
 # Displays Recent Sold Listings
 print (Fore.YELLOW + "\nRecent Sold Listings: \n" + Fore.GREEN)
