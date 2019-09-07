@@ -3,10 +3,11 @@ import requests
 from config import key, number
 from time_left_converter import timeLeft, timeLeftDay, timeLeftHour, timeLeftMinute
 
-searchTerm = "rolex" #"Jaeger LeCoultre -vintage -clock -atmos"
-condition = ("3000")
-minPrice =("1200")
-maxPrice =("9100")
+searchTerm = "Jaeger LeCoultre -vintage -clock -atmos" 
+condition = ("3000") #Pre-owned
+minPrice =("600")
+maxPrice =("7000")
+minBids = "1"
 
 active_url = ("http://svcs.ebay.com/services/search/FindingService/v1\
 ?OPERATION-NAME=findItemsByKeywords\
@@ -24,7 +25,7 @@ active_url = ("http://svcs.ebay.com/services/search/FindingService/v1\
 &itemFilter(3).name=ListingType\
 &itemFilter(3).value(0)=Auction\
 &itemFilter(4).name=MinBids\
-&itemFilter(4).value=1\
+&itemFilter(4).value=" + minBids + "\
 &paginationInput.entriesPerPage=100\
 &sortOrder=EndTimeSoonest\
 &keywords=" + searchTerm)
@@ -42,15 +43,11 @@ for item in (raw["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"]):
    time_left = item["sellingStatus"][0]["timeLeft"][0]
    title = item["title"][0]
    url = item["viewItemURL"][0]
+   bid_count = item["sellingStatus"][0]["bidCount"][0]
 
    remaining = timeLeft(time_left)
 
-   print (title + " $" + price + "\n" + remaining + " \n" + url + "\n")
+   print (title + " $" + price + "\n" + remaining + " \n" + bid_count + " bids \n" + url + "\n")
    int_price = int(float(price))
    new_list.append(int_price)
 
-# print(new_list)
-
-# print (Fore.YELLOW + "Average Active Price: \n" + Fore.GREEN)
-# average_active_price = (calculate_average(new_list))
-# print (average_active_price)
