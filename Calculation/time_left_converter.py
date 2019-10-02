@@ -27,11 +27,18 @@ def timeLeftMinute(x):
         x = x[6:8].replace("M","").replace("H","")
     return(x)
 
-def timeLeft(x):
+def timeLeftPretty(x):
     days = timeLeftDay(x)
     hours = timeLeftHour(x)
     minutes = timeLeftMinute(x)
+
     if int(days) == 0:
         return(hours + "h " + minutes + "m left")
     else:
         return(days + "d " + hours + "h " + minutes + "m left")
+
+def timeLeftString(x):
+    days = timeLeftDay(x)
+    hours = timeLeftHour(x)
+    minutes = timeLeftMinute(x)
+    return {'days': days, 'hours': hours, 'minutes': minutes} # returns dictionary
