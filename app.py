@@ -20,7 +20,7 @@ for searchquery in auction_urls:
             
             remaining = timeLeft(time_left)
             
-            print (title + " $" + price + "\n" + remaining + " \n" + bid_count + " bids \n" + url + "\n")
+            print(f"{title} ${price} \n {remaining} \n {bid_count} bids \n {url} \n")
 
     except KeyError: # No results found
         pass
