@@ -33,12 +33,13 @@ def timeLeftPretty(x):
     minutes = timeLeftMinute(x)
 
     if int(days) == 0:
-        return(hours + "h " + minutes + "m left")
+        return(f"{hours}h {minutes}m left")
     else:
-        return(days + "d " + hours + "h " + minutes + "m left")
+        return(f"{days}d {hours}h {minutes}m left")
 
 def timeLeftString(x):
     days = timeLeftDay(x)
     hours = timeLeftHour(x)
     minutes = timeLeftMinute(x)
     return {'days': days, 'hours': hours, 'minutes': minutes} # returns dictionary
+
