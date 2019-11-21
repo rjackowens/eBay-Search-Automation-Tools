@@ -1,6 +1,9 @@
+
 ﻿
 
 # eBay Search Automation Tools
+
+**Note**: Please be aware this was my first Python project. A lot of conventions/best practices have been violated. At some point I'd like to rewrite this. For the time being though, I still think there's a lot of useful code scattered throughout that could be helpful for others. And of course feel free to submit a pull request for any issues/improvements! Thanks :)
 
 This is a collection of search tools that automate reporting and provide useful analytics for eBay searches. These tools were created with an emphasis in reusability and are easily adapted for a variety of use cases.
 
